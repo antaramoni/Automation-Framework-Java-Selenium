@@ -6,7 +6,7 @@ import testpackage.pages.HomePage;
 public class SearchTest_02 extends TestInitialize {
 
     @Test
-    public void SearchTest01() throws InterruptedException {
+    public void SearchTest03() throws InterruptedException {
 
         HomePage homepage = new HomePage();
 
