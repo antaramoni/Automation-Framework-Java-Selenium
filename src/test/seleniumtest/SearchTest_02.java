@@ -3,15 +3,13 @@ package seleniumtest;
 import org.junit.Test;
 import testpackage.pages.HomePage;
 
-
-
-public class SearchTest_01 extends TestInitialize {
-
+public class SearchTest_02 extends TestInitialize {
 
     @Test
     public void SearchTest01() throws InterruptedException {
 
         HomePage homepage = new HomePage();
+
 
         try {
 
@@ -19,7 +17,8 @@ public class SearchTest_01 extends TestInitialize {
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("a");
+            homepage.inputSearch.sendKeys("aa");
+
 
             // Click on Search button
             homepage.btnSearch.click();
@@ -37,23 +36,5 @@ public class SearchTest_01 extends TestInitialize {
         }
 
 
- /*
-
-        // Switch to the iframe of https://demo.nopcommerce.com/
-        DriverContext.Driver.switchTo().frame(DriverContext.Driver.findElement(By.xpath("/html/body/main/div/iframe")));
-        // homepage.iframe();
-
-        DriverContext.Driver.findElement(By.xpath("//*[@id='small-searchterms']")).sendKeys("aaaa");
-        // homepage.inputSearch.sendKeys("aaaa");
-
-        DriverContext.Driver.findElement(By.xpath("//*[@id='small-search-box-form']/input[2]")).click();
-        //homepage.btnSearch.click();
-
-*/
-
-
-
     }
 }
-
-
