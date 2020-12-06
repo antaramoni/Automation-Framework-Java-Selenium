@@ -6,6 +6,7 @@ import com.automation.framework.config.Settings;
 
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
@@ -32,6 +33,10 @@ public class TestInitialize {
 
         // Navigate to Test url
         DriverContext.Driver.navigate().to(url);
+
+        // maximize the window
+        DriverContext.Driver.manage().window().maximize();
+
 
 
 
