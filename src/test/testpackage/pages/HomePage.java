@@ -21,28 +21,82 @@ public class HomePage extends BasePage {
     }
 
     // Search test box
-    @FindBy(how=How.XPATH, using="//input[@id='small-searchterms']")
+    @FindBy(xpath="//input[@id='small-searchterms']")
     public WebElement inputSearch;
 
     // Search button
-    @FindBy(how=How.XPATH, using="//*[@id='small-search-box-form']/input[2]")
+    @FindBy(xpath="//*[@id='small-search-box-form']/input[2]")
     public WebElement btnSearch;
 
     // Warning message placeholder
-    @FindBy(how=How.XPATH, using="/html/body/div[6]/div[3]/div/div[2]/div/div[2]/div[2]/div")
+    @FindBy(xpath="/html/body/div[6]/div[3]/div/div[2]/div/div[2]/div[2]/div")
     public WebElement warningMsg;
 
 
-    /*
-    @FindAll({@FindBy(how=How.ID, using="username"),
-            @FindBy(className="username")})
+    // "Advanced Search" label
+    @FindBy(xpath="/html/body/div[6]/div[3]/div/div[2]/div/div[2]/div[1]/form/div[1]/div/div[1]/div[2]/label")
+    public WebElement advSearchLabel;
 
-     */
+    // "Advanced Search" checkbox
+    @FindBy(xpath="//*[@id=\"adv\"]")
+    public WebElement advSearchCheckbox;
+
+
+    // "Category" label
+    @FindBy(xpath="//*[@id=\"advanced-search-block\"]/div[1]/label")
+    public WebElement categoryLabel;
+
+    // "Category" drop-down
+    @FindBy(xpath="//*[@id=\"cid\"]")
+    public WebElement categoryDdl;
+
+    // "Automatically search sub categories" label
+    @FindBy(xpath="//*[@id=\"advanced-search-block\"]/div[2]/label")
+    public WebElement subCategoryLabel;
+
+    // "Automatically search sub categories" check-box
+    @FindBy(xpath="//*[@id=\"isc\"]")
+    public WebElement subCategoryCheckbox;
+
+    // "Manufacturer" label
+    @FindBy(xpath="//*[@id=\"advanced-search-block\"]/div[3]/label")
+    public WebElement manufacturerLabel;
+
+    // "Manufacturer" drop-down
+    @FindBy(xpath="//*[@id=\"mid\"]")
+    public WebElement manufacturerDdl;
+
+
+    // "Price range" label
+    @FindBy(xpath="//*[@id=\"advanced-search-block\"]/div[4]/label")
+    public WebElement priceRangeLabel;
+
+    // Price "From" text box
+    @FindBy(xpath="//*[@id=\"pf\"]")
+    public WebElement priceFrom;
+
+    // Price "To" text box
+    @FindBy(xpath="//*[@id=\"pt\"]")
+    public WebElement priceTo;
+
+
+    // "Search In product descriptions" label
+    @FindBy(xpath="//*[@id=\"advanced-search-block\"]/div[5]/label")
+    public WebElement productDescriptionLabel;
+
+    // "Search In product descriptions" checkbox
+    @FindBy(xpath="//*[@id=\"sid\"]")
+    public WebElement productDescriptionCheckbox;
+
+
+
+
+
 
 
 
     // Click on SEARCH button from Home Page
-    public void SearchButton() {
+    public void SearchButtonClick() {
         btnSearch.click();
     }
 
