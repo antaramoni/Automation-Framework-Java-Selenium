@@ -6,8 +6,12 @@ import testelements.pages.HomePage;
 
 public class SearchTest_02 extends TestInitialize {
 
+
+
     @Test
     public void SearchTest02() throws InterruptedException {
+
+        extent.createTest("Scenario-2:");
 
         HomePage homepage = new HomePage();
 

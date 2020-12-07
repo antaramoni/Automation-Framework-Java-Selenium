@@ -9,12 +9,14 @@ public class SearchTest_03 extends TestInitialize {
     @Test
     public void SearchTest03() throws InterruptedException {
 
+        extent.createTest("Scenario-3:");
+
         HomePage homepage = new HomePage();
 
 
         try {
 
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
