@@ -4,16 +4,19 @@ import com.automation.framework.base.DriverContext;
 import com.automation.framework.config.ConfigReader;
 import com.automation.framework.config.Settings;
 
-import org.junit.After;
-import org.junit.Before;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 import java.io.IOException;
 
 public class TestInitialize {
 
-    @Before
+    @BeforeMethod
     public void Initialize() throws IOException {
 
 
@@ -42,12 +45,13 @@ public class TestInitialize {
 
     }
 
-    @After
-    public void TearDownTest()
-    {
+    @AfterMethod
+    public void TearDownTest() throws InterruptedException {
 
         //Closing the browser
         DriverContext.Driver.quit();
+
+        Thread.sleep(2000);
 
 
     }

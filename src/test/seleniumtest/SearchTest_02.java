@@ -1,17 +1,20 @@
 package seleniumtest;
 
-import org.junit.Test;
-import testpackage.pages.HomePage;
+
+import org.testng.annotations.Test;
+import testelements.pages.HomePage;
 
 public class SearchTest_02 extends TestInitialize {
 
     @Test
-    public void SearchTest03() throws InterruptedException {
+    public void SearchTest02() throws InterruptedException {
 
         HomePage homepage = new HomePage();
 
 
         try {
+
+            Thread.sleep(2000);
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
