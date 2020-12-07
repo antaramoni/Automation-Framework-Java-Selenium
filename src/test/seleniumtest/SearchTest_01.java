@@ -1,7 +1,8 @@
 package seleniumtest;
 
-import org.junit.Test;
-import testpackage.pages.HomePage;
+
+import org.testng.annotations.Test;
+import testelements.pages.HomePage;
 
 
 
@@ -24,33 +25,17 @@ public class SearchTest_01 extends TestInitialize {
             // Click on Search button
             homepage.btnSearch.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
             // validate the warning message
             assert(homepage.warningMsg.getText().equals("Search term minimum length is 3 characters"));
 
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
 
         } catch (Exception e) {
             System.out.println("Test Failed :" + e);
         }
-
-
- /*
-
-        // Switch to the iframe of https://demo.nopcommerce.com/
-        DriverContext.Driver.switchTo().frame(DriverContext.Driver.findElement(By.xpath("/html/body/main/div/iframe")));
-        // homepage.iframe();
-
-        DriverContext.Driver.findElement(By.xpath("//*[@id='small-searchterms']")).sendKeys("aaaa");
-        // homepage.inputSearch.sendKeys("aaaa");
-
-        DriverContext.Driver.findElement(By.xpath("//*[@id='small-search-box-form']/input[2]")).click();
-        //homepage.btnSearch.click();
-
-*/
-
 
 
     }

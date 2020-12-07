@@ -1,7 +1,8 @@
 package seleniumtest;
 
-import org.junit.Test;
-import testpackage.pages.HomePage;
+
+import org.testng.annotations.Test;
+import testelements.pages.HomePage;
 
 public class SearchTest_04 extends TestInitialize {
 
@@ -12,6 +13,8 @@ public class SearchTest_04 extends TestInitialize {
 
 
         try {
+
+            Thread.sleep(5000);
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();

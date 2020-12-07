@@ -1,13 +1,14 @@
 package seleniumtest;
 
-import org.junit.Test;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import testpackage.pages.HomePage;
+import org.testng.annotations.Test;
+import testelements.pages.HomePage;
 
 import java.util.List;
 
-public class SeleniumTest_06 extends TestInitialize {
+public class SearchTest_06 extends TestInitialize {
     @Test
     public void SearchTest06() throws InterruptedException {
 
@@ -15,6 +16,8 @@ public class SeleniumTest_06 extends TestInitialize {
 
 
         try {
+
+            Thread.sleep(5000);
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
