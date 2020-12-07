@@ -12,6 +12,8 @@ public class SearchTest_01 extends TestInitialize {
     @Test
     public void SearchTest01() throws InterruptedException {
 
+        extent.createTest("Scenario-1:");
+
         HomePage homepage = new HomePage();
 
         try {

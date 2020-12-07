@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="Automation For nopCommerce">
+
         <classes>
             <class name="seleniumtest.SearchTest_01">
                 <methods>

@@ -5,18 +5,44 @@ import com.automation.framework.config.ConfigReader;
 import com.automation.framework.config.Settings;
 
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
+
 
 import java.io.IOException;
 
 public class TestInitialize {
 
+    ExtentReports extent = new ExtentReports();
+    public static ExtentTest test;
+
+    @BeforeSuite
+    public void config(){
+
+        String path= System.getProperty("user.dir")+ "//TestReports//index.html"; // Extent report path
+
+        ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+
+
+
+        reporter.config().setReportName("Search Module Test Automation Report");
+        reporter.config().setDocumentTitle("Automation Test Report");
+
+
+        extent.attachReporter(reporter);
+        extent.setSystemInfo("Automation Tester","Antara Chowdhury");
+
+
+    }
+
+
     @BeforeMethod
+
     public void Initialize() throws IOException {
 
 
@@ -40,20 +66,28 @@ public class TestInitialize {
         // maximize the window
         DriverContext.Driver.manage().window().maximize();
 
-
-
-
     }
 
+
     @AfterMethod
-    public void TearDownTest() throws InterruptedException {
+    public void TearDown(ITestResult result) throws InterruptedException {
 
         //Closing the browser
         DriverContext.Driver.quit();
 
-        Thread.sleep(2000);
 
 
     }
+
+    @AfterSuite
+    public void TearDownFinal() throws InterruptedException {
+
+        //Generate Report
+        extent.flush();
+
+
+
+    }
+
 
 }
