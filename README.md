@@ -34,6 +34,7 @@ ConfigReader.java (This class helps to read data from GlobalConfig.properties an
 
 Test Run
 ========
+Pre-requisite: Java and Maven are installed and Java and Maven paths are configured into the machine.
 
 Clone the repo and let pom.xml to import all the libraries . Then open the testng.xml (testng.xml has been configure to run all the test methods of seleniumtest.SearchTest) .
 Right clicking on the testng.xml and select "Run" would start running all the test methods. After the test run is done, the extent test report would be found in <Project_folder>/ TestReports/index.html
