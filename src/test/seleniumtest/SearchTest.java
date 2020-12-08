@@ -1,5 +1,6 @@
 package seleniumtest;
 
+import com.automation.framework.config.Settings;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -18,11 +19,14 @@ public class SearchTest extends TestInitialize{
 
         try {
 
+            // Read data from TestConfig.properties
+            String singleKey = Settings.SingleKey;
+
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("a");
+            homepage.inputSearch.sendKeys(singleKey);
 
             // Click on Search button
             homepage.btnSearch.click();
@@ -52,24 +56,26 @@ public class SearchTest extends TestInitialize{
 
         try {
 
-            Thread.sleep(2000);
+            // Read data from TestConfig.properties
+            String doubleKey = Settings.DoubleKey;
+
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("aa");
+            homepage.inputSearch.sendKeys(doubleKey);
 
 
             // Click on Search button
             homepage.btnSearch.click();
 
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
             // validate the warning message
             assert(homepage.warningMsg.getText().equals("Search term minimum length is 3 characters"));
 
-            Thread.sleep(5000);
+            Thread.sleep(2000);
 
 
         } catch (Exception e) {
@@ -89,13 +95,14 @@ public class SearchTest extends TestInitialize{
 
         try {
 
-            Thread.sleep(2000);
+            // Read data from TestConfig.properties
+            String invalidKey = Settings.InvalidKey;
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("aaa");
+            homepage.inputSearch.sendKeys(invalidKey);
 
 
             // Click on Search button
@@ -126,13 +133,14 @@ public class SearchTest extends TestInitialize{
 
         try {
 
-            Thread.sleep(2000);
+            // Read data from TestConfig.properties
+            String doubleKey = Settings.DoubleKey;
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("aaa");
+            homepage.inputSearch.sendKeys(doubleKey);
 
             // Click on Search button
             homepage.btnSearch.click();
@@ -198,13 +206,14 @@ public class SearchTest extends TestInitialize{
 
         try {
 
-            Thread.sleep(2000);
+            // Read data from TestConfig.properties
+            String invalidKey = Settings.InvalidKey;
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("aaa");
+            homepage.inputSearch.sendKeys(invalidKey);
 
             // Click on Search button
             homepage.btnSearch.click();
@@ -255,13 +264,14 @@ public class SearchTest extends TestInitialize{
 
         try {
 
-            Thread.sleep(2000);
+            // Read data from TestConfig.properties
+            String invalidKey = Settings.InvalidKey;
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("aaa");
+            homepage.inputSearch.sendKeys(invalidKey);
 
             // Click on Search button
             homepage.btnSearch.click();
@@ -275,32 +285,198 @@ public class SearchTest extends TestInitialize{
             Thread.sleep(5000);
 
             // Manufacturer drop-down
-            Select s= new Select(homepage.manufacturerDdl);
+            Select s = new Select(homepage.manufacturerDdl);
 
 
             // Array with all the Manufacturer drop-down values
-            String[] manulist = {"All","Apple","HP","Nike"};
+            String[] manulist = {"All", "Apple", "HP", "Nike"};
 
             List<WebElement> options = s.getOptions();
-            for(WebElement manu:options)
-            {
+            for (WebElement manu : options) {
                 boolean match = false;
-                for (int i=0; i<manulist.length; i++)
-                {
-                    if (manu.getText().equals(manulist[i]))
-                    {
+                for (int i = 0; i < manulist.length; i++) {
+                    if (manu.getText().equals(manulist[i])) {
                         match = true;
                     }
                 }
-                assert(match);
+                assert (match);
             }
 
 
         } catch (Exception e) {
             System.out.println("Test Failed :" + e);
         }
+    }
+
+
+        @Test
+        public void SearchScenario07() throws InterruptedException {
+            HomePage homepage = new HomePage();
+            extent.createTest("Scenario-7: Validating search result after searching with a full valid search key, result should return correct product result");
+
+            try {
+
+                // Read data from TestConfig.properties
+                String validKey1 = Settings.ValidKey1;
+
+
+                // Switch to the iframe of https://demo.nopcommerce.com/
+                homepage.iframe();
+
+
+                // Enter the search character
+                homepage.inputSearch.sendKeys(validKey1);
+
+                // Click on Search button
+                homepage.btnSearch.click();
+
+                Thread.sleep(2000);
+
+                // validate search result should match with the search key
+                assert(homepage.productTitle.getText().equals(validKey1));
+
+                // Validate sort by drop down is displayed into the search result section
+                assert(homepage.sortByResult.isDisplayed());
+
+
+                // Validate sort by drop down is displayed into the search result section
+                assert(homepage.pageSize.isDisplayed());
+
+
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+
+        }
+
+
+    @Test
+    public void SearchScenario08() throws InterruptedException {
+        HomePage homepage = new HomePage();
+        extent.createTest("Scenario-8: Validating search result after searching with a partial valid search key, result should return correct product result");
+
+        try {
+
+            // Read data from TestConfig.properties
+            String partialValidKey = Settings.PartialValidKey;
+
+
+            // Switch to the iframe of https://demo.nopcommerce.com/
+            homepage.iframe();
+
+
+            // Enter the search character
+            homepage.inputSearch.sendKeys(partialValidKey);
+
+            // Click on Search button
+            homepage.btnSearch.click();
+
+            Thread.sleep(2000);
+
+            // validate search result should match with the search key
+            assert(homepage.productTitle.getText().contains(partialValidKey));
+
+            // Validate sort by drop down is displayed into the search result section
+            assert(homepage.sortByResult.isDisplayed());
+
+
+            // Validate sort by drop down is displayed into the search result section
+            assert(homepage.pageSize.isDisplayed());
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
 
 
     }
 
-}
+    @Test
+
+    public void SearchScenario09() throws InterruptedException {
+        HomePage homepage = new HomePage();
+        extent.createTest("Scenario-9: Validating search result after searching with a lowercase valid search key with all advanced search parameter used, result should return correct product result with any case");
+
+        try {
+
+            // Read data from TestConfig.properties
+            String validKey2 = Settings.ValidKey2;
+            String singleKey = Settings.SingleKey;
+
+            // Switch to the iframe of https://demo.nopcommerce.com/
+            homepage.iframe();
+
+            // Enter a single character
+            homepage.inputSearch.sendKeys(singleKey);
+
+            // Click on Search button to get the Advanced Search option
+            homepage.btnSearch.click();
+
+
+            // Enter the search character with a Valid Key which is lowercase
+            homepage.inputSearch.sendKeys(validKey2);
+
+
+            // Click on Advanced Search checkbox
+            homepage.advSearchCheckbox.click();
+
+            Thread.sleep(2000);
+
+            // Category drop-down
+            Select s= new Select(homepage.categoryDdl);
+
+            // Select Computer >> Notebooks option from Category drop-down list
+            s.selectByIndex(3);
+
+            // Manufacturer drop-down
+            Select s1= new Select(homepage.manufacturerDdl);
+
+            // Select Apple from Manufacturer drop-down list
+            s1.selectByIndex(1);
+
+            // Setting price from and To
+            homepage.priceFrom.sendKeys("800");
+            homepage.priceTo.sendKeys("2000");
+
+
+            // Click on Search button to see the result
+            homepage.btnSearch.click();
+
+
+            Thread.sleep(5000);
+
+            // Convert the test result into the lowercase as Search result could be in any case
+            String lowercaseResult = homepage.productTitle.getText().toLowerCase();
+
+            // validate search result should match with the search key
+            assert (lowercaseResult.contains(validKey2));
+
+
+            // Validate sort by drop down is displayed into the search result section
+            assert (homepage.sortByResult.isDisplayed());
+
+
+            // Validate page size drop down is displayed into the search result section
+            assert (homepage.pageSize.isDisplayed());
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
+    }
+
+
+
+

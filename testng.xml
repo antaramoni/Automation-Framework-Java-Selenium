@@ -2,38 +2,26 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="Automation For nopCommerce">
-
         <classes>
-            <class name="seleniumtest.SearchTest_01">
+            <class name="seleniumtest.SearchTest">
                 <methods>
-                    <include name="SearchTest01"/>
+                    <include name="SearchScenario01"/>
+                    <include name="SearchScenario02"/>
+                    <include name="SearchScenario03"/>
+                    <include name="SearchScenario04"/>
+                    <include name="SearchScenario05"/>
+                    <include name="SearchScenario06"/>
+                    <include name="SearchScenario07"/>
+                    <include name="SearchScenario08"/>
+                    <include name="SearchScenario09"/>
                 </methods>
             </class>
-            <class name="seleniumtest.SearchTest_02">
-                <methods>
-                    <include name="SearchTest02"/>
-                </methods>
-            </class>
-            <class name="seleniumtest.SearchTest_03">
-                <methods>
-                    <include name="SearchTest03"/>
-                </methods>
-            </class>
-            <class name="seleniumtest.SearchTest_04">
-                <methods>
-                    <include name="SearchTest04"/>
-                </methods>
-            </class>
-            <class name="seleniumtest.SearchTest_05">
-                <methods>
-                    <include name="SearchTest05"/>
-                </methods>
-            </class>
-            <class name="seleniumtest.SearchTest_06">
-                <methods>
-                    <include name="SearchTest06"/>
-                </methods>
-            </class>
+
         </classes>
     </test>
 </suite>
+
+
+
+
+

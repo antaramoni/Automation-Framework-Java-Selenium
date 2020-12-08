@@ -87,16 +87,22 @@ public class HomePage extends BasePage {
     public WebElement productDescriptionCheckbox;
 
 
+    // Product title into the search result
+    @FindBy(className="product-title")
+    public WebElement productTitle;
+
+
+    // Result sort by drop down into the search result section
+    @FindBy(xpath="//*[@id=\"products-orderby\"]")
+    public WebElement sortByResult;
+
+
+    // Result per page drop down into the search result section
+    @FindBy(xpath="//*[@id=\"products-pagesize\"]")
+    public WebElement pageSize;
 
 
 
-
-
-
-    // Click on SEARCH button from Home Page
-    public void SearchButtonClick() {
-        btnSearch.click();
-    }
 
 }
 

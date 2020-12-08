@@ -1,6 +1,7 @@
 package seleniumtest;
 
 
+import com.automation.framework.config.Settings;
 import org.testng.annotations.Test;
 import testelements.pages.HomePage;
 
@@ -16,13 +17,14 @@ public class SearchTest_04 extends TestInitialize {
 
         try {
 
-            Thread.sleep(2000);
+            // Read data from TestConfig.properties
+            String doubleKey = Settings.DoubleKey;
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("aaa");
+            homepage.inputSearch.sendKeys(doubleKey);
 
             // Click on Search button
             homepage.btnSearch.click();
