@@ -1,6 +1,7 @@
 package seleniumtest;
 
 
+import com.automation.framework.config.Settings;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -19,13 +20,14 @@ public class SearchTest_05 extends TestInitialize {
 
         try {
 
-            Thread.sleep(2000);
+            // Read data from TestConfig.properties
+            String invalidKey = Settings.InvalidKey;
 
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("aaa");
+            homepage.inputSearch.sendKeys(invalidKey);
 
             // Click on Search button
             homepage.btnSearch.click();

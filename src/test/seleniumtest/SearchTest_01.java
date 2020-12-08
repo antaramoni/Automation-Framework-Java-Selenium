@@ -1,6 +1,7 @@
 package seleniumtest;
 
 
+import com.automation.framework.config.Settings;
 import org.testng.annotations.Test;
 import testelements.pages.HomePage;
 
@@ -11,7 +12,7 @@ public class SearchTest_01 extends TestInitialize {
 
 
     @Test
-    public void SearchScenario01() throws InterruptedException {
+    public void SearchTest01() throws InterruptedException {
 
         extent.createTest("Scenario-1: Validating Search Textbox and warning message by entering single character");
 
@@ -19,11 +20,14 @@ public class SearchTest_01 extends TestInitialize {
 
         try {
 
+            // Read data from TestConfig.properties
+            String singleKey = Settings.SingleKey;
+
             // Switch to the iframe of https://demo.nopcommerce.com/
             homepage.iframe();
 
             // Enter a character
-            homepage.inputSearch.sendKeys("a");
+            homepage.inputSearch.sendKeys(singleKey);
 
             // Click on Search button
             homepage.btnSearch.click();
