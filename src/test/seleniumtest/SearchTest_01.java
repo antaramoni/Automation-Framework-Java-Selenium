@@ -6,13 +6,14 @@ import testelements.pages.HomePage;
 
 
 
+
 public class SearchTest_01 extends TestInitialize {
 
 
     @Test
-    public void SearchTest01() throws InterruptedException {
+    public void SearchScenario01() throws InterruptedException {
 
-        extent.createTest("Scenario-1:");
+        extent.createTest("Scenario-1: Validating Search Textbox and warning message by entering single character");
 
         HomePage homepage = new HomePage();
 
@@ -41,6 +42,11 @@ public class SearchTest_01 extends TestInitialize {
 
 
     }
+
+
+
+
+
 }
 
 

@@ -18,8 +18,8 @@ import java.io.IOException;
 
 public class TestInitialize {
 
-    ExtentReports extent = new ExtentReports();
-    public static ExtentTest test;
+  ExtentReports extent = new ExtentReports();
+
 
     @BeforeSuite
     public void config(){
@@ -27,16 +27,10 @@ public class TestInitialize {
         String path= System.getProperty("user.dir")+ "//TestReports//index.html"; // Extent report path
 
         ExtentSparkReporter reporter = new ExtentSparkReporter(path);
-
-
-
         reporter.config().setReportName("Search Module Test Automation Report");
         reporter.config().setDocumentTitle("Automation Test Report");
-
-
         extent.attachReporter(reporter);
         extent.setSystemInfo("Automation Tester","Antara Chowdhury");
-
 
     }
 
@@ -75,8 +69,6 @@ public class TestInitialize {
         //Closing the browser
         DriverContext.Driver.quit();
 
-
-
     }
 
     @AfterSuite
@@ -84,7 +76,6 @@ public class TestInitialize {
 
         //Generate Report
         extent.flush();
-
 
 
     }
